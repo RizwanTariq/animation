@@ -15,6 +15,8 @@
     @before-leave="beforeLeave"
     @leave="leave"
     @after-leave="afterLeave"
+    :css="true"
+    name="fade"
   >
     <h1 v-if="flag">Hook</h1>
   </transition>
@@ -32,16 +34,16 @@ export default {
     beforeEnter(el) {
       console.log("beforeEnter", el);
     },
-    enter(el, done) {
+    enter(el) {
       console.log("Enter", el);
 
-      const animate = el.animate([{ transform: "scale3d(0,0,0)" }, {}], {
-        duration: 1000,
-      });
+      // const animate = el.animate([{ transform: "scale3d(0,0,0)" }, {}], {
+      //   duration: 1000,
+      // });
 
-      animate.onfinish = () => {
-        done();
-      };
+      // animate.onfinish = () => {
+      //   done();
+      // };
     },
     afterEnter(el) {
       console.log("afterEnter", el);
@@ -49,16 +51,16 @@ export default {
     beforeLeave(el) {
       console.log("beforeLeave", el);
     },
-    leave(el, done) {
+    leave(el) {
       console.log("Leave", el);
 
-      const animate = el.animate([{}, { transform: "scale3d(0,0,0)" }], {
-        duration: 1000,
-      });
+      // const animate = el.animate([{}, { transform: "scale3d(0,0,0)" }], {
+      //   duration: 1000,
+      // });
 
-      animate.onfinish = () => {
-        done();
-      };
+      // animate.onfinish = () => {
+      //   done();
+      // };
     },
     afterLeave(el) {
       console.log("afterLeave", el);
